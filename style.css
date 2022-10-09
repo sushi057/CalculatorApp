@@ -39,6 +39,8 @@ p{
     height: 1.6em;
     width: 5.2em;
     margin: 16px auto;
+    overflow: hidden;
+    letter-spacing: 8px;
 }
 
 .buttons{

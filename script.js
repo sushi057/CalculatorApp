@@ -1,4 +1,4 @@
-const numButton = document.querySelectorAll('.numeric');
+const keys = document.querySelectorAll('.keys');
 const screen = document.querySelector('.screen');
 const equButton = document.querySelector('.equalBtn');
 const clearButton = document.querySelector('.clearBtn');
@@ -43,19 +43,25 @@ function operate(operator, a, b){
 }
 
 function writeScreen(){
-    numButton.forEach((button) => {
-        button.addEventListener('click', () => {
-            screen.textContent += button.textContent;
+    keys.forEach((key) => {
+        key.addEventListener('click', () => {
+            screen.textContent += key.textContent;
         })
     })
-
-
 }
 
 function eraseScreen(){
-
+    eraseButton.addEventListener('click', () => {
+        screen.textContent = screen.textContent.substring(0, screen.textContent.length - 1); 
+    })
 }
 
 function clearScreen(){
-
+    clearButton.addEventListener('click', () => {
+        screen.textContent = '';
+    })
 }
+
+clearScreen();
+writeScreen();
+eraseScreen();
