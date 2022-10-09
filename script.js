@@ -28,16 +28,16 @@ function multiply(a, b){
 function operate(operator, a, b){
     switch(operator){
         case "+":
-            add(a, b);
+            return add(a, b);
             break;
         case "-":
-            subtract(a, b);
+            return subtract(a, b);
             break;
         case "*":
-            multiply(a, b);
+            return multiply(a, b);
             break;
         case "/":
-            division(a, b);
+            return division(a, b);
             break;
     }
 }
@@ -62,6 +62,17 @@ function clearScreen(){
     })
 }
 
+equButton.addEventListener('click', () => {
+    result = operate();
+    clearScreen();
+    writeScreen();
+})
+
+console.log(operate('-', 1, 1));
 clearScreen();
 writeScreen();
 eraseScreen();
+
+//BUGSS//
+//1. More than decimal can be written
+//2. More than one operator can be written

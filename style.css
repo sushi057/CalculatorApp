@@ -26,6 +26,17 @@ p{
 
 }
 
+#lmao{
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--primary-keys);
+}
+
+#lol{
+    font-size: 25px;
+    color: var(--secondary-keys);
+}
+
 .container{
     display: flex;
     flex-direction: column;
@@ -35,7 +46,7 @@ p{
 
 .screen{
     /* border: 1px solid white; */
-    font-size: 5rem;
+    font-size: 4.8rem;
     height: 1.6em;
     width: 5.2em;
     margin: 16px auto;
@@ -59,7 +70,7 @@ button{
     padding: 20px;
     text-align: center;
     border-radius: 50%;
-    /* font-weight: bold; */
+    font-weight: lighter;
     color: white;
     border: none;
 }
