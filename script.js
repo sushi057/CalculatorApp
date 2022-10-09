@@ -8,6 +8,7 @@ const mulButton = document.querySelector('.multiplication');
 const subButton = document.querySelector('.subtraction');
 const addButton = document.querySelector('.addition');
 
+const operators = ['+', '-', '*', '/'];
 
 function add(a, b){
     return Number(a)+Number(b);
@@ -29,16 +30,12 @@ function operate(operator, a, b){
     switch(operator){
         case "+":
             return add(a, b);
-            break;
         case "-":
             return subtract(a, b);
-            break;
         case "*":
             return multiply(a, b);
-            break;
         case "/":
             return division(a, b);
-            break;
     }
 }
 
@@ -68,10 +65,30 @@ equButton.addEventListener('click', () => {
     writeScreen();
 })
 
-console.log(operate('-', 1, 1));
+function evalOperation(){
+    screenText = screen.textContent;
+    for(sign of operators) {
+        // console.log(sign);
+        index = screenText.indexOf(sign);
+        if (index !== -1){
+            console.log(index);
+            operandA = Number(screenText.substring(0, index));
+            operandB = Number(screenText.substring(index+1, ));
+            return operate(sign, operandA, operandB);
+        }
+    }
+}
+
+function avoidTwo(){
+    console.log(screenText);
+}
+
 clearScreen();
 writeScreen();
 eraseScreen();
+console.log(evalOperation());
+// avoidTwo();
+
 
 //BUGSS//
 //1. More than decimal can be written
