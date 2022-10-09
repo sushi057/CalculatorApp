@@ -75,7 +75,7 @@ button{
     border: none;
 }
 
-.primary{
+.primary, .equalBtn{
     background-color: var(--primary-keys);
 }
 

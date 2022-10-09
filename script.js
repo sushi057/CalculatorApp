@@ -1,4 +1,5 @@
 const keys = document.querySelectorAll('.keys');
+const primButton = document.querySelectorAll('.primary');
 const screen = document.querySelector('.screen');
 const equButton = document.querySelector('.equalBtn');
 const clearButton = document.querySelector('.clearBtn');
@@ -39,13 +40,22 @@ function operate(operator, a, b){
     }
 }
 
-function writeScreen(){
-    keys.forEach((key) => {
-        key.addEventListener('click', () => {
-            screen.textContent += key.textContent;
-        })
-    })
+// function writeScreen(){
+//     keys.forEach((key) => {
+//         key.addEventListener('click', () => {
+//             screen.textContent += key.textContent;
+//         })
+//     })
+
+// }
+
+function writeScreen(evt){
+    // screen.textContent += evt.target.textContent;
 }
+
+keys.forEach((key) => {
+    key.addEventListener('click', writeScreen);
+})
 
 function eraseScreen(){
     eraseButton.addEventListener('click', () => {
@@ -68,10 +78,8 @@ equButton.addEventListener('click', () => {
 function evalOperation(){
     screenText = screen.textContent;
     for(sign of operators) {
-        // console.log(sign);
         index = screenText.indexOf(sign);
         if (index !== -1){
-            console.log(index);
             operandA = Number(screenText.substring(0, index));
             operandB = Number(screenText.substring(index+1, ));
             return operate(sign, operandA, operandB);
@@ -81,15 +89,24 @@ function evalOperation(){
 
 function avoidTwo(){
     console.log(screenText);
+    for(sign of operators){
+        if(screenText.indexOf(sign) > -1){
+            primButton.forEach((button) => {
+                button.addEventListener('click', evalOperation);
+            })
+        }
+    }
 }
 
 clearScreen();
-writeScreen();
 eraseScreen();
-console.log(evalOperation());
-// avoidTwo();
+writeScreen();
+evalOperation();
+avoidTwo();
+
+// calculator();
 
 
 //BUGSS//
 //1. More than decimal can be written
-//2. More than one operator can be written
+//2. More than one operator can be writte
